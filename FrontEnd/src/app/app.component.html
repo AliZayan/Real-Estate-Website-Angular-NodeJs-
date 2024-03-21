@@ -1,0 +1,120 @@
+<!-- NavBar Section -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/"> <img src="../assets/Images/logooo.png" class="logo" /> </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse text-center" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+
+
+        <li class="nav-item px-2">
+          <a class="nav-link" routerLink="/propertiesforsale">Property For Sale</a>
+        </li>
+        <!--   <li class="nav-item dropdown" >
+          <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Our Pages
+          </a>
+          <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item " routerLink="/login">About Us</a></li>
+            <li><a class="dropdown-item " routerLink="/loginSeller">Contact Us</a></li>
+            <li><a class="dropdown-item " routerLink="/loginCompany">Services</a></li>
+            <li><a class="dropdown-item " routerLink="/loginEmployee">Latest News Live</a></li>
+          </ul>
+        </li>  -->
+
+        <!-- if not loged in -->
+        <li class="nav-item dropdown" *ngIf="!isThereAUser">
+          <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="far fa-user-circle"></i> Sign In As
+          </a>
+          <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item " routerLink="/login">Buyer</a></li>
+            <li><a class="dropdown-item " routerLink="/loginSeller">Seller</a></li>
+            <li><a class="dropdown-item " routerLink="/loginCompany">Company</a></li>
+            <li><a class="dropdown-item " routerLink="/loginEmployee">Employee</a></li>
+          </ul>
+        </li>
+        <!-- if not loged in -->
+
+        <!-- if loged in -->
+        <li class="nav-item dropdown" *ngIf="isThereAUser">
+          <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class=""><img class="personalimage"src="{{url}}"/> </i> Welcome {{personName}}
+          </a>
+          <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" (click)="$event.preventDefault();goBack();"
+              >Dashboard</a></li>
+            <li><a class="dropdown-item" (click)="$event.preventDefault();logOut();">Logout</a></li>
+          </ul>
+        </li>
+        <!-- if loged in -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<router-outlet> </router-outlet>
+
+
+<!-- Footer Section-->
+<footer class="text-center text-black bg-black p-3">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12 col-md-6 col-sm-12">
+        <div> <img src="../assets/Images/logooooo.png" class="footerLogo" /></div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <h1 class="text-center">About</h1>
+          <ul class="footer-links">
+            <li><a routerLink="/ContactUs" target="_top" class="li">Contact Us</a></li>
+            <li><a routerLink="/AboutUs" target="_top" class="li" style="margin-right:10px;">About Us</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+          <h1 class="text-center">News</h1>
+          <ul class="footer-links">
+            <li><a routerLink="/EG" target="_top" class="li">Egypt</a></li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-12  col-md-6 col-sm-12">
+          <div class="follow-us text-light">
+            Follow us
+            <a class="facebook text-light" href="https://www.facebook.com/profile.php?id=100083645221886" target="_blank"><i class="fab fa-facebook px-3"></i></a>
+            <a class="instagram text-light" href="https://www.instagram.com/from_hosue_to_home/" target="_blank"><i class="fab fa-instagram px-3"></i></a>
+            <a class="twitter text-light" href="https://twitter.com/FromHouseToHom3" target="_blank"><i class="fab fa-twitter px-3"></i></a>
+            <a class="youtube text-light" href="https://www.youtube.com/channel/UC_t-Mdx0QgH6z-bhsdzHjVA" target="_blank"><i class="fab fa-youtube px-3"></i></a>
+
+          </div>
+        </div>
+        <div class="col-lg-12  col-md-6 col-sm-12">
+          <div class="copyright text-light ">
+            <hr>
+            <P style="font-size: 15px;" class="footerp">©All Rights Reserved 2021.</P>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+<!--End of Footer Section-->

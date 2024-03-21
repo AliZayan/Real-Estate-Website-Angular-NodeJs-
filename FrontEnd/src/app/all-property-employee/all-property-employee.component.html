@@ -1,0 +1,62 @@
+<div class="container-fluid">
+
+    <div class="bg-white">
+        <div class="container-fluid row">
+         <div class="" id="navbarSupportedContent">
+            <h3>All Property   </h3>
+           </div>
+        </div>
+      </div>
+
+
+  <div class="t" style="overflow-y: hidden;">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Property ID</th>
+            <th scope="col">Listing Type</th>
+             <th scope="col">Listing Section</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
+            <th scope="col">Location</th>
+            <th scope="col">Latitude</th>
+            <th scope="col">Langitude</th>
+            <th scope="col">Floors</th>
+            <th scope="col">Bathrooms</th>
+            <th scope="col">Bedrooms</th>
+            <th scope="col">Size</th>
+            <th scope="col">Youtube Video Url</th>
+            <th scope="col">Creator_type</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of empList">
+            <td>{{employee.id}}</td>
+            <td>{{employee.type}}</td>
+             <td>{{employee.status}}</td>
+            <td>{{employee.title}}</td>
+            <td>{{employee.price}}</td>
+            <td>{{employee.description}}</td>
+            <td>{{employee.location}}</td>
+            <td>{{employee.marker_latitude}}</td>
+            <td>{{employee.marker_langitude}}</td>
+            <td>{{employee.content_num_floors}}</td>
+            <td>{{employee.content_num_bathrooms}}</td>
+            <td>{{employee.content_num_bedrooms}}</td>
+            <td>{{employee.content_sequres}}</td>
+            <td>{{employee.youtube_url}}</td>
+            <td>{{employee.creator_type}}</td>
+
+
+             <td><button type="button" class="btn btn-danger" (click)="deleteEmployee(employee)">Delete</button></td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+

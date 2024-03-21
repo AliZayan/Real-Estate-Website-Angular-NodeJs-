@@ -1,0 +1,252 @@
+<section style="background-color:#F2F6F7 ;">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 text-black d-flex align-items-center">
+        <div class="d-flex align-items-center py-3">
+          <form
+            style="width: 23rem"
+            [formGroup]="reForm"
+            (ngSubmit)="onRegister()"
+          >
+            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px; color:black">
+              Sign Up <br />for Company
+            </h3>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="fname">First Name</label>
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                formControlName="fname"
+                class="form-control form-control-lg"
+                placeholder="Enter your First Name"
+              />
+            </div>
+            <div
+              *ngIf="
+                reForm.controls.fname.touched &&
+                reForm.controls.fname.errors?.required
+              "
+              class="alert alert-danger mx-6" style="font-weight:600 ;background-color: #f8d7da00;"
+            >
+            First Name is required
+            </div>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="lname">Last Name</label>
+              <input
+                type="text"
+                id="lname"
+                name="lname"
+                formControlName="lname"
+                class="form-control form-control-lg"
+                placeholder="Enter your Last Name"
+              />
+            </div>
+            <div
+              *ngIf="
+                reForm.controls.lname.touched &&
+                reForm.controls.lname.errors?.required
+              "
+              class="alert alert-danger mx-6" style="font-weight:600 ;background-color: #f8d7da00;"
+            >
+              Last Name is required
+            </div>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="email">Email address</label>
+              <input
+                type="email"
+                required=""
+                pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"
+                id="email"
+                name="email"
+                formControlName="email"
+                class="form-control form-control-lg"
+                placeholder="Enter your email"
+              />
+            </div>
+            <div
+              *ngIf="
+                reForm.controls.email.touched &&
+                reForm.controls.email.errors?.required
+              "
+              class="alert alert-danger mx-6" style="font-weight:600 ;background-color: #f8d7da00;"
+            >
+              Email is required
+            </div>
+            <div
+              *ngIf="
+                reForm.controls.email.touched &&
+                reForm.controls.email.errors?.pattern
+              "
+              class="alert alert-danger mx-6" style="font-weight:600 ;background-color: #f8d7da00;"
+            >
+              Email is invalid
+            </div>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                formControlName="password"
+                class="form-control form-control-lg"
+                placeholder="Enter your password"
+              />
+            </div>
+            <div
+              *ngIf="
+                reForm.controls.password.touched &&
+                reForm.controls.password.errors?.required
+              "
+              class="alert alert-danger mx-6" style="font-weight:600 ;background-color: #f8d7da00;"
+            >
+              Password is required
+            </div>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="phone">Phone</label>
+              <input
+                type="text"
+                id="phone"
+                pattern="[0-9]{11}"
+                name="phone"
+                formControlName="phone"
+                class="form-control form-control-lg"
+                placeholder="Phone"
+                name="phone"
+              />
+            </div>
+            <div
+              *ngIf="
+                reForm.controls.phone.touched &&
+                reForm.controls.phone.errors?.required
+              "
+              class="alert alert-danger mx-6" style="font-weight:600 ;background-color: #f8d7da00;"
+            >
+              Phone is required
+            </div>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="street">Street</label>
+              <input
+                type="text"
+                id="street"
+                name="street"
+                formControlName="street"
+                class="form-control form-control-lg"
+                placeholder="Enter your street"
+              />
+            </div>
+            <div
+              *ngIf="
+                reForm.controls.street.touched &&
+                reForm.controls.street.errors?.required
+              "
+              class="alert alert-danger mx-6" style="font-weight:600 ;background-color: #f8d7da00;"
+            >
+              Street is required
+            </div>
+
+
+
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <span class="form-label " for="location">Location</span>
+                <select
+                  class="form-control"
+                  id="location"
+                  formControlName="location"
+                  name="location"
+
+                  (change)="getRegion($event)"
+                >
+                <option value="" style="font-weight: 900 ;" selected="selected">
+                  Location
+                </option>
+                  <option
+                    *ngFor="let city of cities"
+                    value="{{ city.id }}"
+                    [label]="city.name"
+
+                  >
+                    {{ city.name }}
+                  </option>
+                </select>
+              </div>
+
+              <div *ngIf="reForm.controls.location.touched && reForm.controls.location.errors?.required"
+              class="alert alert-danger mx-6" style="font-weight:600 ;background-color: #f8d7da00;">
+              location is required
+            </div>
+          </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <div class="form-group" >
+                  <span class="form-label">Region</span>
+                  <select
+                    class="form-control"
+                    id="region"
+                    formControlName="region"
+                    name="region"
+                  >
+                    <option value="" style="font-weight: 900 ;" selected="selected">Region</option>
+                    <option
+
+                      [value]="region.id"
+                      *ngFor="let region of regions"
+                    >
+                      {{ region.name }}
+                    </option>
+                  </select>
+                </div>
+                <div *ngIf="reForm.controls.region.touched && reForm.controls.region.errors?.required"
+                class="alert alert-danger mx-6" style="font-weight:600 ;background-color: #f8d7da00;">
+                  Region is required
+                </div>
+              </div>
+            </div>
+
+            </div>
+
+
+
+
+            <label class="form-label" for="file">Logo</label> <br>
+            <input
+              class="form-label"
+              type="file"
+              id="file"
+              name="file"
+              formControlName="file"
+              (change)="onFileChange($event.target)"
+              required
+            />
+            <div *ngIf="message != null"   class="alert alert-danger mx-6" style="font-weight:600 ;background-color: #f8d7da00;">
+              {{ message }}
+            </div>
+            <div class="pt-1 my-4">
+              <button class="btn-custom primary light btn-block mx-2" type="submit">
+                Sign Up
+              </button>
+            </div>
+            <p>
+              Have an account?
+              <a routerLink="/loginCompany" class="link-info" style=" color: #7a281a; font-weight: 500; ">login here</a>
+            </p>
+            <br />
+          </form>
+          <!-- <pre>
+              {{ reForm.value | json }}
+            </pre> -->
+        </div>
+      </div>
+      <div class="col-sm-6 px-6 d-none d-sm-block">
+        <img
+          src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/img3.jpg"
+          alt="Login image"
+          class="images"
+          style="object-fit: cover; object-position: left"
+        />
+      </div>
+    </div>
+  </div>
+</section>

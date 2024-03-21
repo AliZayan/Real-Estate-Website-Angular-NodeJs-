@@ -1,0 +1,308 @@
+<div class="container-fluid">
+  <div class="bg-white">
+    <div class="container-fluid row">
+      <div class="" id="navbarSupportedContent">
+        <h3>
+          All Employees
+          <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addEmployee" type="submit"  style="color: white; background-color: #FF5A3C; border-color:
+          #FF5A3C;">
+            Add Employee
+          </button>
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="t" style="overflow-y: hidden;">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Employee ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Location</th>
+          <th scope="col">Region</th>
+          <th scope="col">Street</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of empList">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.first_name }} {{ employee.last_name }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.gender }}</td>
+          <td>{{ employee.phone }}</td>
+          <td>{{ employee.user_city_name }}</td>
+          <td>{{ employee.user_region_name }}</td>
+          <td>{{ employee.address }}</td>
+          <td>
+            <button type="button" class="btn btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#editEmployee"
+              (click)="editEmployee(employee)">
+              Edit
+            </button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="deleteEmployee(employee)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div
+    class="modal fade"
+    id="addEmployee"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Employee</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="empDetail">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">
+                First Name
+              </label>
+              <input
+                type="text"
+                formControlName="fname"
+                class="form-control"
+                id="fname"
+                aria-describedby="emailHelp"
+                [(ngModel)]="firstname"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">
+                Last Name
+              </label>
+              <input
+                type="text"
+                formControlName="lname"
+                class="form-control"
+                id="lname"
+                aria-describedby="emailHelp"
+                [(ngModel)]="lastname"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email</label>
+              <input
+                type="email"
+                formControlName="email"
+                class="form-control"
+                id="email"
+                aria-describedby="emailHelp"
+                [(ngModel)]="email"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">
+                Passwoard
+              </label>
+              <input
+                type="text"
+                formControlName="password"
+                class="form-control"
+                id="password"
+                aria-describedby="emailHelp"
+              />
+            </div>
+            <div class="mb-3">
+              <span class="form-label">Gender</span>
+              <select
+                class="form-control"
+                id="gender"
+                formControlName="gender"
+                name="gender "
+                (change)="setGender($event.target)"
+
+              >
+                <option class="" style="font-weight: bold;" selected value="">Gender</option>
+                <option class="">Male</option>
+                <option class="">Female</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Phone</label>
+              <input
+                type="text"
+                formControlName="phone"
+                class="form-control"
+                id="phone"
+                aria-describedby="emailHelp"
+              />
+            </div>
+
+            <div class="form-group">
+              <span class="form-label" for="location">Location</span>
+              <select
+                class="form-control"
+                id="location"
+                formControlName="location"
+                name="location"
+                (change)="getRegions($event.target)"
+                [(ngModel)]="cityid"
+              >
+                <option value="" style="font-weight: bold;"  class="">Select Location</option>
+                <option
+                  *ngFor="let city of cities"
+                  value="{{ city.id }}"
+                  [label]="city.name"
+                >
+                  {{ city.name }}
+                </option>
+              </select>
+              <span class="form-label">Region</span>
+              <select
+                class="form-control"
+                id="region"
+                formControlName="region"
+                name="region"
+                (change)="setRegions($event.target)"
+              >
+                <option class=""  style="font-weight: bold;"value="">Region</option>
+                <option
+                  class=""
+                  [value]="region.id"
+                  *ngFor="let region of regions"
+                >
+                  {{ region.name }}
+                </option>
+              </select>
+            </div>
+
+
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Street</label>
+              <input
+                type="text"
+                formControlName="street"
+                class="form-control"
+                id="street"
+                aria-describedby="emailHelp"
+                [(ngModel)]="address"
+              />
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-info"
+                data-bs-dismiss="modal"
+                (click)="addEmployee()"
+                style="color: white; background-color: #FF5A3C; border-color:
+                #FF5A3C;"
+              >
+                Add Employee
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- edit employee modal -->
+ <div class="modal fade" id="editEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Edit Employee Details
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="empDetail">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">First Name</label>
+            <input type="text" formControlName="fname" class="form-control" id="fname" aria-describedby="emailHelp" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Last Name</label>
+            <input type="text" formControlName="lname" class="form-control" id="lname" aria-describedby="emailHelp" />
+          </div>
+
+
+
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Phone</label>
+            <input type="text" formControlName="phone" class="form-control" id="phone" aria-describedby="emailHelp" />
+          </div>
+
+          <div class="mb-3">
+            <span class="form-label">Gender</span>
+            <input type="text" formControlName="gender" class="form-control" id="gender" aria-describedby="genderHelp" />
+
+
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Location</label>
+            <!-- <input
+              type="text"
+              formControlName="city"
+              class="form-control"
+              id="city"
+              aria-describedby="emailHelp"
+            /> -->
+            <ng-select formControlName="city" class="form-control" id="city" id="city" [items]="cities"
+              bindLabel="name" bindValue="id" [(ngModel)]="selectedCity" (ngModelChange)="getRegion()" style="
+                  border: 1px solid #c9c9c9;
+                  border-radius: 4px;
+                  height: 35px;
+              ">
+            </ng-select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Region</label>
+
+            <ng-select formControlName="region" class="form-control" id="region" [items]="regions" bindLabel="name"
+              bindValue="id" [(ngModel)]="selectedRegion" style="
+                  border: 1px solid #c9c9c9;
+                  border-radius: 4px;
+                  height: 35px;
+              ">
+            </ng-select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Street</label>
+            <input type="text" formControlName="street" class="form-control"
+            [(ngModel)]="address" id="street"
+              aria-describedby="emailHelp" />
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button type="button" class="btn btn-success" (click)="updateEmployee()" data-bs-dismiss="modal">
+              Update
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

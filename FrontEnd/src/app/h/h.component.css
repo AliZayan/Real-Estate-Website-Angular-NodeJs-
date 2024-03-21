@@ -1,0 +1,115 @@
+
+header {
+    position: relative;
+    background-color: black;
+    height: 85vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  header video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  header .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.4;
+    z-index: 1;
+  }
+
+  h1 {
+    font-size: 88px;
+    line-height: 90px;
+    color: #fff;
+    max-width: 75%;
+    font-family: Arial,sans-serif;
+
+}
+.Findyourhome{
+    line-height: 21px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    font-weight: 500;
+    line-height: 18px;
+    padding-bottom: 3px;
+    font-family: Arial,sans-serif;
+}
+.Findyourhome:hover{
+    color: #ff6a00;
+    font-weight: 500;
+    border-bottom: 1.5px solid #ff6a00;
+    transition: all 0.7s ease-in-out;
+}
+
+
+
+@media (max-width :767.98px){
+  header video {
+
+    width: auto;
+    height: auto;
+
+  }
+
+  h1 {
+    text-align: right;
+    font-size: 40px;
+    line-height: 60px;
+    color: #fff;
+    max-width: 75%;
+    font-family: Arial,sans-serif;
+
+}
+.Findyourhome{
+
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  line-height: 18px;
+ font-size: smaller;
+  font-family: Arial,sans-serif;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

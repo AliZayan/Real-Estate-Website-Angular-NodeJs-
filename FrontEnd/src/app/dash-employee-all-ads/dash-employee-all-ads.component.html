@@ -1,0 +1,275 @@
+<div class="d-flex" id="wrapper">
+  <!-- Sidebar -->
+  <div class="Dashboard" id="sidebar-wrapper" *ngIf="showMe">
+    <div class="sidebar-heading container py-4 primary-text fs-4 fw-bold  border-bottom"><i
+      class="fa-solid fa-user-shield me-2"></i>Employee</div>
+    <div class="list-group list-group-flush my-3">
+      <a   routerLink="/dashemployee"  class="list-group-item list-group-item-action bg-transparent second-text fw-bold "><i
+        class="fa-regular fa-user me-2"></i>MyProfile</a>
+
+      <a
+        routerLink="/dashallbuyer"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+      >
+        <i class="fa-solid fa-house-user"></i> Buyer
+      </a>
+
+      <a
+        routerLink="/dashallseller"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+      >
+        <i class="fa-solid fa-building-user"></i> Seller
+      </a>
+
+      <a routerLink="/dashallcompany"
+      class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+      <i class="fa-solid fa-user-tie"></i> <Span style="margin-left: 9px;">Company</Span></a>
+
+      <a
+        routerLink="/dashallemployee"
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+      >
+        <i class="fa-solid fa-user-plus"></i> Employee
+      </a>
+      <a
+        class="list-group-item list-group-item-action bg-transparent second-text fw-bold active"
+      >
+        <i class="fa-solid fa-city"></i> AllProperty
+      </a>
+
+
+
+
+
+
+  <a routerLink="/dashallreport"
+  class="list-group-item list-group-item-action bg-transparent second-text fw-bold  ">
+  <i class="fa-solid fa-file-lines"></i><span style="margin-left: 9px;">Report</span> </a>
+
+
+  <a href="/DashallContactUs" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+    <i class="fa-solid fa-file-contract me-2"></i>ContactUs
+  </a>
+  <a  href="dashemployee/chat" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+    <i class="fa-regular fa-comment-dots "></i>
+    Messages
+  </a>
+
+
+
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+
+  <div id="page-content-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+      <div class="d-flex align-items-center">
+        <i
+          class="fas fa-align-left primary-text fs-4 me-3"
+          (click)="toggle()"
+          id="menu-toggle"
+        ></i>
+      </div>
+    </nav>
+
+
+
+
+
+
+<!--
+    <div class="container-fluid px-4">
+      <div class="row g-3 my-2">
+        <div class="container rounded bg-white mt-5 mb-5">
+          <div class="row">
+            <div class="container-fluid">
+              <div class="bg-white">
+                <div class="container-fluid row">
+                  <div class="" id="navbarSupportedContent">
+                    <h3>All Property</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="t" style="overflow-y: hidden">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Property ID</th>
+                      <th scope="col">Listing Type</th>
+                      <th scope="col">Listing Section</th>
+                      <th scope="col">Title</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Location</th>
+                      <th scope="col">Latitude</th>
+                      <th scope="col">Langitude</th>
+                      <th scope="col">Floors</th>
+                      <th scope="col">Bathrooms</th>
+                      <th scope="col">Bedrooms</th>
+                      <th scope="col">Youtube Video Url</th>
+                      <th scope="col">Creator_type</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let employee of ads">
+                      <td>{{ employee.id }}</td>
+                      <td>{{ employee.property_status_name }}</td>
+                      <td>{{ employee.property_category_name }}</td>
+                      <td>{{ employee.title }}</td>
+                      <td>{{ employee.price }}</td>
+                      <td>{{ employee.description }}</td>
+                      <td>{{ employee.property_region_name }}</td>
+                      <td>{{ employee.latitude }}</td>
+                      <td>{{ employee.longitude }}</td>
+                      <td>{{ employee.floors_number }}</td>
+                      <td>{{ employee.bathrooms_number }}</td>
+                      <td>{{ employee.rooms_number }}</td>
+                      <td>{{ employee.youtube_url }}</td>
+                      <td>{{ employee.property_created_by_first_name }}{{ employee.property_created_by_last_name }}</td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn btn-secondary me-2"
+                          style="font-weight:600 ;"
+                          (click)="editEmployee(employee.id)"
+                        >
+
+                          Edit
+                        </button>
+                      </td>
+                      <td>
+                        <button
+                          type="button"
+                          style="font-weight:600 ;"
+                          class="btn btn-danger me-2"
+                          (click)="deleteEmployee(employee.id)"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  -->
+
+
+
+  <div class="container-fluid px-4">
+    <div class="row g-3 my-2">
+      <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+          <div class="container-fluid">
+            <div class="bg-white">
+              <div class="container-fluid row">
+                <div class="" id="navbarSupportedContent">
+                  <h3 style=" margin-top: 36px;">All Property</h3>
+                </div>
+              </div>
+            </div>
+
+
+
+  <div class="innercontent" >
+    <div class="container">
+      <div class="listing_wrap">
+
+        <!--Row Start-->
+        <ul class="row agentWrp"style="padding: 0px;">
+          <!--col-lg-4 Start-->
+          <li class="col-lg-4 col-md-4" *ngFor="let employee of ads">
+            <div class="property_box wow fadeInUp"  style="background-color: #ECECEC;">
+              <div class="propertyImg"><img alt="" src="{{employee.image_url}}"></div>
+              <h3><a href="/propertiesforsale/{{ employee.id }}">{{ employee.title }}</a> <span style="font-weight: 400; color: #626262; margin-top: 3%;"> <i class="fa-solid fa-location-dot" style="color:#FF5A3C ; margin-left:1%;"></i> {{employee.property_city_name}}</span> </h3>
+               <h4> </h4>
+
+               <ul class="row" style="padding: 0px;">
+                <li class="col-4">
+                  <div class="agent_box"><a>
+                   <h5>ID: {{ employee.id }}</h5>
+
+                    </a></div>
+
+                </li>
+                <li class="col-4">
+                  <div class="agent_box"><a>
+                   <h5>{{ employee.property_created_by_first_name}}  {{ employee.property_created_by_last_name}}</h5>
+
+                    </a></div>
+
+                </li>
+                <li class="col-4">
+                  <div class="agent_box"><a>
+                   <h5>{{ employee.property_status_name}}</h5>
+
+                    </a></div>
+
+                </li>
+              </ul>
+
+              <div class="propert_info">
+                <ul class="row" style="padding: 0px;">
+                  <li class="col-4">
+                    <div class="agent_box"><a>
+                      <div class="proprty_icon">
+                        <button type="button" class="btn" (click)="editEmployee(employee.id)"><i class="fa-solid fa-pen-to-square"></i> </button>
+                     </div><h5>Edit</h5>
+
+                      </a> </div>
+
+                  </li>
+                  <li class="col-4">
+                    <div class="agent_box"><a href="/propertiesforsale/{{ employee.id }}">
+                      <div class="proprty_icon">
+                        <button type="button" class="btn" > <i class="fa-solid fa-house-chimney"></i> </button>
+                     </div><h5>View</h5>
+
+                      </a> </div>
+
+                  </li>
+
+                  <li class="col-4">
+                    <div class="agent_box"><a>
+           <div class="proprty_icon">
+           <button type="button" (click)="deleteEmployee(employee.id)" class="btn"><i class="fa-solid fa-trash-can"></i></button></div>
+                      <h5>Delete</h5>
+                      </a> </div>
+
+
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <!--col-lg-4 End-->
+
+
+        </ul>
+        <!--Row End-->
+
+         </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>

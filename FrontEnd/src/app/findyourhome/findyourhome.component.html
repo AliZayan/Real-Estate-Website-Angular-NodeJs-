@@ -1,0 +1,85 @@
+<div id="map" class="full"></div>
+<section  style="background-color: rgb(242,246,247)">
+  <Br>
+    <br>
+  </section>
+  <section  style="background-color: rgb(242,246,247)">
+    <!-- PRODUCT DETAILS AREA START -->
+    <div class="ltn__product-area ltn__product-gutter">
+      <div class="container">
+                              <div class="row">
+
+                                  <!-- ltn__product-item -->
+                                  <div class="col-lg-4 col-sm-6 col-12" *ngFor="let ad of ads">
+                                      <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+                                          <div class="product-img">
+                                              <a href="/propertiesforsale/{{ ad.id }}"><img src="{{ad.image_url}}" alt="#"></a>
+                                              <div class="real-estate-agent">
+                                                  <div class="agent-img">
+                                                      <a href="/propertiesforsale/{{ ad.id }}"><img src="{{ad.image_url}}" alt="#"></a>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="product-info">
+                                              <div class="product-badge">
+                                                  <ul>
+                                                      <li class="sale-badg">{{ ad.property_status_name }}</li>
+                                                  </ul>
+                                              </div>
+                                              <h2 class="product-title">
+
+
+                                                <a href="/propertiesforsale/{{ ad.id }}">{{ ad.title }}
+
+                                              </a></h2>
+                                              <div class="product-img-location">
+                                                  <ul>
+                                                      <li>
+                                                          <a href="/propertiesforsale/{{ ad.id }}" ><i><img style="max-width: 8%;" src="../../assets/Images/location-pin.png"/></i> {{ad.property_region_name}}</a>
+                                                      </li>
+                                                  </ul>
+                                              </div>
+
+                                              <div class="card-footer-a">
+                                                <ul class="card-info d-flex justify-content-around">
+                                                  <li>
+                                                    <h4 class="card-info-title">
+                                                      <i class="fa-solid fa-maximize c"></i>
+                                                    </h4>
+
+                                                      <span class="square" style="    margin-left: -20%;
+                                                      ">{{ ad.square}}m
+                                                        <sup>2</sup>
+                                                      </span>
+
+                                                  </li>
+                                                  <li>
+                                                    <h4 class="card-info-title">
+                                                      <i class="fa-solid fa-bed c"></i>
+                                                    </h4>
+                                                    <span>{{ ad.rooms_number }}</span>
+                                                  </li>
+                                                  <li>
+                                                    <h4 class="card-info-title">
+                                                      <i class="fa-solid fa-bath c"></i>
+                                                    </h4>
+                                                    <span>{{ad.bathrooms_number}}</span>
+                                                  </li>
+                                                </ul>
+                                              </div>
+
+
+                                          </div>
+                                          <div class="product-info-bottom">
+                                              <div class="product-price">
+                                                  <span>{{ ad.price }} EGP</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                              </div>
+                          </div>
+                        </div>
+  <!-- PRODUCT DETAILS AREA END -->
+</section>

@@ -1,0 +1,205 @@
+<!-- Search -->
+<div class="ltn__slider-area ltn__slider-6 body">
+  <div class="ltn__slide-one-active slick-slide-arrow-1 slick-slide-dots-1">
+    <!-- ltn__slide-item -->
+    <div class="ltn__slide-item--- ltn__slide-item-9 section-bg-1 bg-image" data-bs-bg="img/slider/52.jpg">
+      <div class="ltn__slide-item-inner">
+        <div class="slide-item-info bg-overlay-white-90 text-center">
+          <div class="slide-item-info-inner slide-item-info-line-no  ltn__slide-animation">
+
+            <div class="slide-item-car-dealer-form">
+
+              <h3 class="text-color-white--- text-center mb-30">Find Your <span
+                  class="ltn__secondary-color-3">Perfect</span> Home</h3>
+              <div class="ltn__car-dealer-form-tab">
+
+                <div class="tab-content pb-10">
+                  <div class="tab-pane fade active show" id="ltn__form_tab_1_1">
+                    <div class="car-dealer-form-inner">
+                      <form class="ltn__car-dealer-form-box row" [formGroup]="reForm" (ngSubmit)="onSearch()">
+
+
+
+
+
+                        <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-12 col-md-12">
+                          <select class="nice-select" id="location" formControlName="location" name="location"
+                             (change)="getRegion($event)">
+                              <option value="" style="font-weight: 600 ;" selected="selected">
+                              Select location
+                            </option>
+
+                            <option *ngFor="let city of cities" value="{{ city.id }}" [label]="city.name">{{city.name}}</option>
+
+                          </select>
+                        </div>
+
+                        <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-12 col-md-12">
+                          <select class="nice-select" id="region" formControlName="region" name="region"
+                            >
+                            <option value="" class=""selected="selected">Select Region</option>
+                            <option *ngFor="let region of regions" value="{{ region.id }}" [label]="region.name">
+                              {{ region.name }}
+                            </option>
+                          </select>
+                        </div>
+
+                        <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-12 col-md-12">
+                          <select class="nice-select" id="type" formControlName="type" name="type">
+                            <option value="" class="" selected="selected">Listing Type</option>
+
+                            <option *ngFor="let cat of category" value="{{ cat.id }}" [label]="cat.name">
+                              {{ cat.name }}
+                            </option>
+                          </select>
+                        </div>
+
+
+                        <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-12 col-md-12">
+                          <select class="nice-select" id="status" formControlName="status" name="status">
+                            <option value="" class="" selected="selected">Listing Section</option>
+
+                            <option *ngFor="let stat of status" value="{{ stat.id }}" [label]="stat.name">
+                              {{ stat.name }}
+                            </option>
+                          </select>
+                        </div>
+
+
+
+
+
+
+                        <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-12 col-md-12">
+                          <input type="text" inputmode="numeric" formControlName="minprice" id="minprice" name="price"
+                            class="nice-select" style="    font-weight: 600;" placeholder="Min-Price - EGP" />
+
+                        </div>
+
+
+
+                        <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-12 col-md-12">
+
+                          <input type="text" inputmode="numeric" formControlName="maxprice" id="maxprice" name="price"
+                            class="nice-select" style="    font-weight: 600;" placeholder="Max-Price - EGP" />
+                        </div>
+
+                        <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-12 col-md-12">
+                          <div class="btn-wrapper text-center mt-0">
+                            <button type="submit" class="btn theme-btn-1  text-uppercase"
+                              style="border-radius: 15px;">Search</button>
+
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+  </div>
+</div>
+<!-- Search END -->
+
+<!-- BackGround  -->
+<section  style="background-color: rgb(242,246,247)">
+<Br>
+  <br>
+</section>
+<!-- BackGround End  -->
+<div *ngIf="Found"> <!-- SLIDER AREA START (slider-1) -->
+<section  style="background-color: rgb(242,246,247)">
+    <!-- PRODUCT DETAILS AREA START -->
+    <div class="ltn__product-area ltn__product-gutter">
+      <div class="container">
+                              <div class="row">
+
+                                  <!-- ltn__product-item -->
+                                  <div class="col-lg-4 col-sm-6 col-12" *ngFor="let ad of ads">
+                                      <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+                                          <div class="product-img">
+                                              <a href="/propertiesforsale/{{ ad.id }}"><img src="{{ad.image_url}}" alt="#"></a>
+                                              <div class="real-estate-agent">
+                                                  <div class="agent-img">
+                                                      <a href="/propertiesforsale/{{ ad.id }}"><img src="{{ad.image_url}}" alt="#"></a>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="product-info">
+                                              <div class="product-badge">
+                                                  <ul>
+                                                      <li class="sale-badg">{{ ad.property_status_name }}</li>
+                                                  </ul>
+                                              </div>
+                                              <h2 class="product-title">
+
+
+                                                <a href="/propertiesforsale/{{ ad.id }}">{{ ad.title }}
+
+                                              </a></h2>
+                                              <div class="product-img-location">
+                                                  <ul>
+                                                      <li>
+                                                          <a href="/propertiesforsale/{{ ad.id }}" ><i><img style="max-width: 8%;" src="../../assets/Images/location-pin.png"/></i> {{ad.property_region_name}}</a>
+                                                      </li>
+                                                  </ul>
+                                              </div>
+
+                                              <div class="card-footer-a">
+                                                <ul class="card-info d-flex justify-content-around">
+                                                  <li>
+                                                    <h4 class="card-info-title">
+                                                      <i class="fa-solid fa-maximize c"></i>
+                                                    </h4>
+
+                                                      <span class="square" style="    margin-left: -20%;
+                                                      ">{{ ad.square}}m
+                                                        <sup>2</sup>
+                                                      </span>
+
+                                                  </li>
+                                                  <li>
+                                                    <h4 class="card-info-title">
+                                                      <i class="fa-solid fa-bed c"></i>
+                                                    </h4>
+                                                    <span>{{ ad.rooms_number }}</span>
+                                                  </li>
+                                                  <li>
+                                                    <h4 class="card-info-title">
+                                                      <i class="fa-solid fa-bath c"></i>
+                                                    </h4>
+                                                    <span>{{ad.bathrooms_number}}</span>
+                                                  </li>
+                                                </ul>
+                                              </div>
+
+
+                                          </div>
+                                          <div class="product-info-bottom">
+                                              <div class="product-price">
+                                                  <span>{{ ad.price }} EGP</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                              </div>
+                          </div>
+                        </div>
+  <!-- PRODUCT DETAILS AREA END -->
+</section>
+<!-- Property END -->  </div>
+
+
+
+
+<div *ngIf="Found==false" style="background-color: rgb(242,246,247);">
+  <app-not-found-search></app-not-found-search>
+
+</div>

@@ -1,0 +1,230 @@
+.logo{
+
+    width: 110px;
+    height: 110px;
+
+}
+.dropdown-item{
+    font-size: 1.1rem;
+    font-family: 'Arial,sans-serif,Times New Roman', Times ;
+
+}
+.nav-link{
+
+    font-size: 1.1rem;
+    font-family: 'Arial,sans-serif,Times New Roman', Times ;
+
+}
+
+.nav-link:hover{
+
+    border-bottom: 2px solid rgb(0, 0, 0);
+    transition: border-bottom 0.5s ease-in-out;
+}
+
+.o-icon {
+    color: #000;
+    height: 24px;
+    width: 24px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+
+
+
+/* Footer Design */
+
+footer{
+    font-size : 1.3rem;
+
+}
+footer .follow-us{
+    margin-top: 18px;
+
+
+}
+footer .follow-us .facebook i:hover{
+    color: rgb(20, 49, 129);
+    transition : color 0.5s ease-out;
+
+}
+footer .follow-us .twitter i:hover{
+    color: rgb(6, 189, 235);
+    transition : color 0.5s ease-out;
+
+}
+
+footer .follow-us .instagram i:hover{
+    color: rgb(109, 70, 79);
+    transition : color 0.5s ease-out;
+
+}
+footer .follow-us .youtube i:hover{
+    color: rgb(158, 58, 58);
+    transition : color 0.5s ease-out;
+
+}
+
+.follow-us{
+
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(143, 142, 142) !important;
+    text-decoration: none;
+}
+.copyright{
+
+
+    font-family: Neue Helvetica,Helvetica,sans-serif;
+    margin-top: 15px;
+}
+.footerLogo{
+
+    text-align: center;
+    width: 20%;
+}
+
+h1{
+    color: rgb(255, 255, 255) !important;
+    font-family: Monotype Garamond,Garamond,serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 25px;
+
+}
+.li{
+
+    font-family: Neue Helvetica,Helvetica,sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 15px;
+    color: rgb(104, 104, 104) !important;
+}
+.footerp{
+    font-family: Neue Helvetica,Helvetica,sans-serif;
+    color: rgb(104, 104, 104) !important;
+
+}
+
+/* Responsive Design */
+/* Mobile Phone */
+@media (max-width :767.98px){
+    .navbar-expand-md .navbar-nav{
+        margin-top:20px;
+    }
+    .navbar-expand-md .navbar-nav .nav-item .nav-link{
+        text-align: center;
+        width:20%;
+        margin:auto;
+
+    }
+    .navbar-expand-md .navbar-nav .nav-item .nav-link:hover{
+        border:none;
+        background-color:#000;
+        color:#fff !important;
+        border-radius:20px;
+    }
+    .footerLogo{
+
+        text-align: center;
+        width: 70%;
+
+    margin-left: 91px;
+
+    }
+    .footerp{
+        font-family: Neue Helvetica,Helvetica,sans-serif;
+        color: rgb(104, 104, 104) !important;
+        font-size: small !important;
+    }
+  .follow-us{
+margin-left: -20%;
+      width:150%;
+  }
+
+}
+
+
+
+
+
+
+
+
+form{
+    position: relative;
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: rgb(0, 0, 0);
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid rgb(0, 0, 0);
+    padding: 5px;
+}
+
+input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.fa{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #afafaf;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+form:hover{
+    width: 300px;
+    cursor: pointer;
+}
+
+form:hover input{
+    display: block;
+}
+
+form:hover .fa{
+    background: rgb(248,188,3);
+    color: white;
+}
+agm-map {
+    height: 300px;
+  }
+  .pointer{
+      cursor: pointer;
+  }
+
+.personalimage{
+
+  vertical-align: middle;
+  width: 35px;
+  border-radius: 100%;
+}
+.px-2{
+
+  padding-right: .5rem!important;
+    padding-left: .5rem!important;
+    margin: auto;
+}

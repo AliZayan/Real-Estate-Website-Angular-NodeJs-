@@ -1,0 +1,267 @@
+
+ <div class="subheader subheader-2 bg-cover bg-center dark-overlay"
+ style="background-image: url('{{url}}')">
+ <div class="container">
+     <div class="">
+         <span class="listing-badge featured" ><i class="fas fa-star"></i></span>
+         <span class="listing-badge pending " >{{theADD.property_status_name}}</span>
+         <h1 class="text-white">{{theADD.title}}</h1>
+
+         <span class="text-white"  style="font-weight: 400;"><i><img style="max-width: 3%;" src="../../assets/Images/location-pin.png"/>{{theADD.property_city_name}}</i> </span>
+     </div>
+ </div>
+</div>
+
+
+<div class="section listing-wrapper" style="background-color:#F2F6F7 ;">
+  <div class="container">
+      <div class="row">
+          <!-- Listings Start -->
+          <div class="col-lg-8">
+
+
+            <div class="section section-padding pt-0 acr-listing-features">
+              <h4>Property Overview<i class="fa-solid fa-house-heart"></i></h4>
+              <h6 class="" style="">{{theADD.description}}</h6>
+          </div>
+
+
+
+              <div class="section pt-0">
+                  <h4>Property Video</h4>
+
+                  <iframe width="760" height="415" [src]="src" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+              </div>
+
+
+              <div class="section section-padding pt-0 acr-listing-features">
+                  <h4>Features</h4>
+                  <div class="row">
+                      <div class="col-12">
+                        <div class="property-detail-info-list section-bg-1 clearfix mb-60">
+                          <h6> <ul>
+                              <li><label>Property ID :</label> <span>{{theADD.id}}</span></li>
+                              <li><label>Property Type : </label> <span>{{theADD.property_category_name}}</span></li>
+                              <li><label>Rooms :</label> <span>{{theADD.rooms_number}}</span></li>
+                              <li><label>Baths :</label> <span>{{theADD.bathrooms_number}}</span></li>
+                              <li><label>Beds :</label> <span>7</span></li>
+                          </ul>
+                          <ul>
+                              <li><label>Price :</label><span>{{theADD.price}} EGY</span></li>
+                              <li><label>Property Status :</label> <span>{{theADD.property_status_name}}</span></li>
+                              <li><label>Home Area :</label> <span>{{theADD.square}} sqft</span></li>
+                              <li><label>Location :</label> <span>{{theADD.property_city_name}}</span></li>
+                              <li><label>Region :</label> <span>{{theADD.property_region_name}}</span></li>
+                          </ul> </h6>
+
+                      </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="section pt-0">
+                <h4>Location</h4>
+                <div  id="map" class="full"></div>
+
+
+            </div>
+
+
+          </div>
+          <!-- Listings End -->
+          <!-- Sidebar Start -->
+          <div class="col-lg-4">
+              <div class="sidebar sticky-sidebar">
+
+
+                  <div class="sidebar-widget sidebar-widget-agent">
+                      <h5>The Agent</h5>
+
+                      <div class="media sidebar-author listing-agent">
+                        <a> <img src="{{personalurl}}"
+                                ></a>
+                        <div class="media-body">
+                            <h6> <a>{{theADD.property_created_by_first_name}} {{theADD.property_created_by_last_name}}</a>  <div class=" d-inline-block mx-3" style="cursor:pointer" (click)="isthereAuser()">
+                              <i class="fa-solid fa-heart-circle-check" style="font-size:25px;color: #7a281a" *ngIf="notFav"></i>
+                              <i class="fa-solid fa-heart-circle-xmark" style="font-size:25px;color: #7a281a" *ngIf="!notFav"></i>
+                            </div></h6>
+                            <span>{{theADD.user_types}}</span>
+                        </div>
+                    </div>
+                      <form [formGroup]="reForm" (ngSubmit)="IsThereMessage()">
+                          <div class="form-group">
+                              <input type="text" class="form-control" placeholder="Email Address" name="email"
+                                  value="{{theADD.property_created_by_email}}" readonly>
+                          </div>
+                          <div class="form-group">
+                              <input type="text" class="form-control" placeholder="Phone Number" name="phone"
+                              value="{{theADD.property_created_by_phone}}" readonly>
+                          </div>
+                          <div class="form-group">
+                              <textarea name="Description" formControlName="description" id="description"   name="description" rows="3" placeholder="Enter your message"
+                                  class="form-control"></textarea>
+
+
+
+                                  <div *ngIf="message!= null" style="color: #7a281a; font-weight: 500; text-align: center;" class="mt-2">
+                                    {{message}}
+                                  </div>
+
+                          </div>
+                          <button type="submit" class="btn-custom primary light btn-block">Send Message</button>
+                      </form>
+                      <!-- Contact End -->
+
+                        <br>
+                        <br>
+                      <div class="sidebar-widget">
+                        <h5>Another Property Listings</h5>
+                        <!-- Listing Start -->
+
+                        <div class="listing listing-list media sidebar-author listing-agent" *ngFor="let ad of ads.slice(0,4)">
+                            <div class="listing-thumbnail">
+                                <a href="/propertiesforsale/{{ ad.id }}"><img [src]="ad.image_url" ></a>
+                            </div>
+                            <div class="listing-body">
+
+                                      <div class="media-body">
+                                        <h6> <a href="/propertiesforsale/{{ ad.id }}">{{ad.title}}</a></h6> </div>
+                                <span class="listing-price">
+                                    <span>{{ad.price}} EGP</span> </span>
+                            </div>
+                        </div>
+                        <!-- Listing End -->
+                    </div>
+
+                    <div class="sidebar-widget sidebar-widget-agent">
+                      <h5>Report Property</h5>
+                      <form [formGroup]="ReportForm" (ngSubmit)="IsThereReport()">
+
+                          <div class="form-group">
+                              <textarea formControlName="Reportdescription" id="Reportdescription"  rows="3" placeholder="Enter your Report"
+                                  class="form-control"></textarea>
+
+
+
+                                  <div *ngIf="messageR!= null" style="color: #7a281a; font-weight: 500; text-align: center;" class="mt-2">
+                                    {{messageR}}
+                                  </div>
+
+                          </div>
+                          <button type="submit" class="btn-custom primary light btn-block">Send Report</button>
+                      </form>
+
+    <!--<pre>{{ ReportForm.value | json }}   </pre>-->
+
+                  </div>
+              </div>
+          </div>
+          <!-- Sidebar End -->
+      </div>
+  </div>
+</div>
+
+
+
+
+ <!-- Sidebar End
+
+<section class="section-property" style="background-color: rgb(230, 231, 232)">
+  <div class="container">
+    <div class="row">
+      <div id="property-carousel" class="swiper container col my-5">
+        <div class="swiper-wrapper">
+          <div class="carousel-item-b swiper-slide">
+            <div class="card-box-a card-shadow d-flex align-item-start flex-column">
+              <div class="img-box-a w-50 mx-auto mb-4">
+                <img src="{{url}}" alt="" class="img-a img-fluid" />
+              </div>
+              <div class="row text-center mb-5">
+                <div class="col-12"> <a>
+                    Create By:
+                    {{theADD.property_created_by_first_name}}
+                    {{theADD.property_created_by_last_name}}
+                  </a></div>
+                <div class="col-12"><a>
+                    Creator email:
+                    {{theADD.property_created_by_email}}
+                  </a></div>
+                <div class="col-12"><a>
+                    phone number:
+                    {{theADD.property_created_by_phone}}
+                  </a></div>
+              </div>
+              <div class="d-flex justify-content-around">
+                <div class="card-overlay">
+                  <div class="card-overlay-a-content">
+                    <div class="card-header-a">
+                      <h2 class="card-title-a">
+                        <a>{{ theADD.title }}
+                          {{ theADD.id }}
+                        </a>
+                      </h2>
+                    </div>
+                    <div class="card-body-a">
+                      <div class="price-box d-flex">
+                        <span class="price-a">{{ theADD.property_status_name }} | EGP
+                          {{ theADD.price }}</span>
+                      </div>
+                    </div>
+                    <div class="card-footer-a">
+                      <ul class="card-info d-flex flex-column">
+                        <li>
+                          <h4 class="card-info-title d-inline-block">
+                            <i class="fa-solid fa-maximize c"></i>&nbsp;&nbsp;
+                          </h4>
+                          <span class="square">{{ theADD.property_city_id
+                            }}{{ theADD.property_category_id }}m
+                            <sup>2</sup>
+                          </span>
+                        </li>
+                        <li>
+                          <h4 class="card-info-title d-inline-block">
+                            <i class="fa-solid fa-bed c"></i>&nbsp;&nbsp;
+                          </h4>
+                          <span>{{ theADD.rooms_number }}</span>
+                        </li>
+                        <li>
+                          <h4 class="card-info-title d-inline-block">
+                            <i class="fa-solid fa-bath c"></i>&nbsp;&nbsp;
+                          </h4>
+                          <span>{{ theADD.bathrooms_number }}</span>
+                        </li>
+                      </ul>
+                      <br>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="">
+                  <div class=" d-inline-block mx-3" style="cursor:pointer" (click)="isthereAuser()">
+                    <i class="fa-regular fa-heart" style="font-size:25px;color: #ff4141" *ngIf="notFav"></i>
+                    <i class="fa-solid fa-heart" style="font-size:25px;color: #ff4141" *ngIf="!notFav"></i>
+                  </div>
+                  <form [formGroup]="reForm" (ngSubmit)="onPostAds()">
+                  <div class="form-group  col-md-12">
+                    <label for="description" class="form-label ">Send Message To Owner </label>
+                    <textarea name="Description" style="height:60px ;" formControlName="description" id="description" name="description"
+                      class="textarea form-control" cols="30" rows="10"></textarea>
+                  </div>
+                  <div class=" d-inline-block"><button type="submit" class="btn btn-primary">Contact with the owner</button></div>
+                </form>
+                   <pre>
+              {{ reForm.value | json }}
+            </pre>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->

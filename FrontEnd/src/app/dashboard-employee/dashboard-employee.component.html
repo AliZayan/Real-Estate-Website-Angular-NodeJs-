@@ -1,0 +1,295 @@
+<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="Dashboard" id="sidebar-wrapper" *ngIf="showMe">
+        <div class="sidebar-heading container py-4 primary-text fs-4 fw-bold  border-bottom"><i
+                class="fa-solid fa-user-shield me-2"></i>Employee</div>
+        <div class="list-group list-group-flush my-3">
+            <a class="list-group-item list-group-item-action bg-transparent second-text active "><i
+                    class="fa-regular fa-user me-2"></i>MyProfile</a>
+
+            <a routerLink="/dashallbuyer"
+                class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <i class="fa-solid fa-house-user"></i> Buyer</a>
+
+            <a routerLink="/dashallseller"
+                class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fa-solid fa-building-user"></i> Seller</a>
+
+            <a routerLink="/dashallcompany"
+                class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <i class="fa-solid fa-user-tie"></i> <Span style="margin-left: 9px;">Company</Span></a>
+
+            <a routerLink="/dashallemployee"
+                class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <i class="fa-solid fa-user-plus"></i> Employee</a>
+            <a routerLink="/allads"
+                class="list-group-item list-group-item-action bg-transparent second-text fw-bold   ">
+                <i class="fa-solid fa-city"></i> AllProperty</a>
+             <a routerLink="/dashallreport"
+                class="list-group-item list-group-item-action bg-transparent second-text fw-bold  ">
+                <i class="fa-solid fa-file-lines"></i><span style="margin-left: 9px;">Report</span> </a>
+
+                <a href="/DashallContactUs" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                  <i class="fa-solid fa-file-contract me-2"></i>ContactUs
+                </a>
+
+                <a  routerLink="chat" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                  <i class="fa-regular fa-comment-dots "></i>
+                  Messages
+                </a>
+            <!-- <a class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"(click)="logOut(); $event.preventDefault()"><i
+                    class="fas fa-power-off me-2"></i>Logout</a> -->
+        </div>
+
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-align-left primary-text fs-4 me-3" (click)="toggle()" id="menu-toggle"></i>
+
+            </div>
+        </nav>
+
+
+        <!--  <div class="container-fluid px-4">
+            <div class="row g-3 my-2">
+              <div class="container rounded bg-white mt-5 mb-5">
+                <div class="row">
+                  <div class="col-md-3 border-right">
+                    <div
+                      class="d-flex flex-column align-items-center text-center p-3 py-5"
+                    >
+                      <img
+                      class=" rounded-circle mt-5"
+                      width="250px"
+
+                        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-5 border-right">
+                    <div class="p-3 py-5">
+                      <div
+                        class="d-flex justify-content-between align-items-center mb-3"
+                      >
+                        <h4 class="text-right">Profile Settings</h4>
+                      </div>
+                      <div class="row mt-2">
+                        <div class="col-md-6">
+                          <label class="labels">First Name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="First name"
+                            value=""
+                            [(ngModel)]="user.first_name"
+                          />
+                        </div>
+
+                        <div class="col-md-6">
+                          <label class="labels">Second Name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            value=""
+                            placeholder="Second Name"
+                            [(ngModel)]="user.last_name"
+                          />
+                        </div>
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col-md-12">
+                          <label class="labels">Mobile Number</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="enter phone number"
+                            value=""
+                            [(ngModel)]="user.phone"
+                          />
+                        </div>
+
+                        <div class="col-md-12">
+                          <label class="labels">Address Line 1</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="enter address line 1"
+                            value=""
+                            [(ngModel)]="user.address"
+                          />
+                        </div>
+
+                        <div class="col-md-12">
+                          <label class="labels">Email ID</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="enter email address"
+                            value=""
+                            value=""
+                            [(ngModel)]="user.email"
+                          />
+                        </div>
+                      </div>
+                      <div class="row mt-3">
+                        <label class="labels">Country</label>
+                          <ng-select
+                          [items]="cities"
+                          bindLabel="name"
+                          bindValue="id"
+                          [(ngModel)]="selectedCity"
+                          (ngModelChange)="getRegion()"
+                          style="
+                          background-color: white;
+                          border: 1px solid #c9c9c9;
+                          border-radius: 4px;
+                          height: 35px;
+                      "
+                        >
+                        </ng-select>
+
+                        <label class="labels">State/Region</label>
+                        <ng-select
+                          [items]="regions"
+                          bindLabel="name"
+                          bindValue="id"
+                          [(ngModel)]="selectedRegion"
+                          style="
+                          background-color: white;
+                          border: 1px solid #c9c9c9;
+                          border-radius: 4px;
+                          height: 35px;
+                      "
+                        >
+                        </ng-select>
+                      </div>
+                      <div>{{ massege }}</div>
+                      <div class="mt-5 text-center">
+                        <button
+                          class="btn btn-primary profile-button"
+                          type="button"
+                          (click)="save()"
+                        >
+                          Save Profile
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>   -->
+          <div class="ltn__myaccount-tab-content-inner">
+            <!-- comment-area -->
+            <div class="ltn__comment-area mb-50">
+              <div class="ltn-author-introducing clearfix">
+                <div class="author-img">
+                  <img
+                    src="{{url}}"
+                    style="border-radius: 100%;margin-top: -22%;"
+                    alt="Author Image">
+                </div>
+                <div class="author-info">
+                  <h2>{{user.first_name}} {{user.last_name}}</h2>
+                  <div class="footer-address">
+                    <ul>
+                      <li>
+                        <div class="footer-address-icon">
+                          <i class="fa-solid fa-location-dot" style="color:rgb(255,90,60);"></i>
+                        </div>
+                        <div class="footer-address-info ">
+                          <p>{{user.city_name}}</p>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="footer-address-icon">
+                          <i class="fa-solid fa-phone " style="color:rgb(255,90,60);"></i>
+                        </div>
+                        <div class="footer-address-info">
+                          <p><a href="tel:+0123-456789">{{user.phone}}</a></p>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="footer-address-icon">
+                          <i class="fa-solid fa-envelope" style="color:rgb(255,90,60);"></i>
+                        </div>
+                        <div class="footer-address-info">
+                          <p><a href="mailto:example@example.com">{{user.email}}</a></p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="ltn__form-box contact-form-box box-shadow white-bg">
+                <h4 class="title-2">Profile Settings</h4>
+                  <div class="row">
+                    <div class="col-md-6">
+
+                      <div class="input-item input-item-name ltn__custom-icon">
+                        <input type="text" name="name"  [(ngModel)]="user.first_name" placeholder="Frist Name">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="input-item input-item-name ltn__custom-icon">
+                        <input type="text" name="name"   [(ngModel)]="user.last_name" placeholder="last Name">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="input-item input-item-email ltn__custom-icon">
+                        <input type="email"  [(ngModel)]="user.email" name="email" placeholder="Enter email address">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="input-item input-item-phone ltn__custom-icon">
+                        <input type="text"  [(ngModel)]="user.phone" name="phone" placeholder="Enter phone number">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 p-3">
+                      <ng-select [items]="cities" class="input-item input-item-website ltn__custom-icon" bindLabel="name"
+                        bindValue="id" [(ngModel)]="selectedCity" (ngModelChange)="getRegion()" style="
+                                background-color: #f71a1a00;
+                                border: 1px solid #ff5a3c;
+                                border-radius: 4px;
+                                 height: 40px;
+                                  width: 100%;
+                                     margin-left: -1px;
+                            ">
+                      </ng-select>
+                    </div>
+                    <div class="col-md-6 p-3">
+                      <ng-select [items]="regions" class="input-item input-item-region ltn__custom-icon"  bindLabel="name" bindValue="id" [(ngModel)]="selectedRegion" style="
+                     background-color: #f71a1a00;
+                                border: 1px solid #ff5a3c;
+                                border-radius: 4px;
+                                 height: 40px;
+                                  width: 100%;
+                                     margin-left: -1px;
+                  ">
+                    </ng-select>
+
+                    </div>
+
+                  </div>
+
+                  <div style="color: #7a281a; font-weight: 500; text-align: center;" class="mt-3" >{{ massege }}</div>
+
+                  <div class="btn-wrapper mt-3">
+                    <button class="btn theme-btn-1  text-uppercase" type="submit" style="border-radius: 15px; font-weight: 500;"(click)="save()" > Save Profile</button>
+                  </div>
+
+
+
+
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>

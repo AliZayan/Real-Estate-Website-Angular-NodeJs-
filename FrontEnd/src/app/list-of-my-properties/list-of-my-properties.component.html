@@ -1,0 +1,180 @@
+
+<!-- <div class="container-fluid">
+    <br>
+    <br>
+    <br>
+    <div class="bg-white">
+        <div class="container-fluid row">
+            <div class="" id="navbarSupportedContent">
+                <h3 class="title-2">All Property </h3>
+            </div>
+        </div>
+    </div>
+    <div class="t" style="overflow-y: hidden;">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Property ID</th>
+                    <th scope="col">Listing Type</th>
+                    <th scope="col">Listing Section</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Latitude</th>
+                    <th scope="col">Langitude</th>
+                    <th scope="col">Floors</th>
+                    <th scope="col">Bathrooms</th>
+                    <th scope="col">Bedrooms</th>
+                    <th scope="col">Youtube Video Url</th>
+                    <th scope="col">Creator_type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of empList">
+                    <td>{{employee.id}}</td>
+                    <td>{{employee.property_status_name}}</td>
+                    <td>{{employee.property_category_name}}</td>
+                    <td>{{employee.title}}</td>
+                    <td>{{employee.price}}</td>
+                    <td>{{employee.description}}</td>
+                    <td>{{employee.property_region_name}}</td>
+                    <td>{{employee.latitude}}</td>
+                    <td>{{employee.longitude}}</td>
+                    <td>{{employee.floors_number}}</td>
+                    <td>{{employee.bathrooms_number}}</td>
+                    <td>{{employee.rooms_number}}</td>
+                    <td>{{employee.youtube_url}}</td>
+                    <td>{{employee.property_status_name}}</td>
+                    <td><button type="button" class="btn" style="color: white ;
+                      background-color:black ; font-weight: 600;" (click)="editEmployee(employee.id)">Edit</button>
+                    </td>
+                    <td><button type="button" class="btn btn-danger"  style="color: white ;
+                      font-weight: 600; "(click)="deleteEmployee(employee.id)">Delete</button>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+    <br>
+
+    <br>
+
+    <br>
+
+    <br>
+    <br>
+
+    <br>
+
+    <br>
+
+    <br>
+    <br>
+
+    <br>
+
+    <br>
+
+    <br>
+    <br>
+
+    <br>
+
+    <br>
+
+    <br>
+</div> -->
+
+
+
+<!--Inner Content Start-->
+
+
+
+
+ <div class="container-fluid" *ngIf="Found" style="padding: 0px;">
+    <br>
+    <br>
+    <br>
+    <div class="bg-white" >
+        <div class="container-fluid row" style="padding: 0px;">
+            <div class="" id="navbarSupportedContent">
+                <h3 class="title-2">My Property </h3>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+<div class="innercontent" >
+  <div class="container">
+    <div class="listing_wrap">
+
+      <!--Row Start-->
+      <ul class="row agentWrp"style="padding: 0px;">
+        <!--col-lg-4 Start-->
+        <li class="col-lg-4 col-md-4" *ngFor="let employee of empList">
+          <div class="property_box wow fadeInUp" style="background-color: #ECECEC;">
+            <div class="propertyImg"><img alt="" src="{{employee.image_url}}"></div>
+            <h3><a href="/propertiesforsale/{{ employee.id }}">{{employee.title}}</a> <span style="font-weight: 400; color: #626262;"> <i class="fa-solid fa-location-dot" style="color:#FF5A3C ; margin-left:1%;"></i> {{employee.property_city_name}}</span> </h3>
+            <div class="propert_info">
+              <ul class="row" style="padding: 0px;">
+                <li class="col-4">
+                  <div class="agent_box"><a>
+                    <div class="proprty_icon">
+                      <button type="button" class="btn" (click)="editEmployee(employee.id)"><i class="fa-solid fa-pen-to-square"></i> </button>
+                   </div><h5>Edit</h5>
+
+                    </a> </div>
+
+                </li>
+                <li class="col-4">
+                  <div class="agent_box"><a href="/propertiesforsale/{{ employee.id }}">
+                    <div class="proprty_icon">
+                      <button type="button" class="btn" > <i class="fa-solid fa-house-chimney"></i> </button>
+                   </div><h5>View</h5>
+
+                    </a> </div>
+
+                </li>
+
+                <li class="col-4">
+                  <div class="agent_box"><a>
+         <div class="proprty_icon">
+         <button type="button" (click)="deleteEmployee(employee.id)" class="btn"><i class="fa-solid fa-trash-can"></i></button></div>
+                    <h5>Delete</h5>
+                    </a> </div>
+
+
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <!--col-lg-4 End-->
+
+
+      </ul>
+      <!--Row End-->
+
+       </div>
+  </div>
+</div>
+</div>
+
+
+<div *ngIf="Found==false" >
+<app-my-property-not-found></app-my-property-not-found>
+</div>

@@ -1,0 +1,54 @@
+<div class="d-flex" id="wrapper" >
+  <!-- Sidebar -->
+  <div class="Dashboard" id="sidebar-wrapper" *ngIf="showMe">
+      <div class="sidebar-heading container py-4 primary-text fs-4 fw-bold  border-bottom"><i
+              class="fa-solid fa-users  me-2"></i>Company</div>
+      <div class="list-group list-group-flush my-3">
+
+
+
+
+      <a
+                      routerLink="/companyFavProperties"
+            class="list-group-item list-group-item-action bg-transparent second-text fw-bold"
+            >
+            <i class="fa-regular fa-heart me-2"></i>
+            MyFavorite
+            </a>
+
+                  <a class="list-group-item list-group-item-action bg-transparent second-text fw-bold active"><i
+                    class="fa-solid fa-angles-up me-2"></i> AddProperty</a>
+                    <a routerLink="/myProperties-company" class="list-group-item list-group-item-action bg-transparent second-text fw-bold "><i
+                      class="fa-solid fa-building-user me-2"></i>MyProperties</a>
+                      <a routerLink="/dashcompany/chat" class="list-group-item list-group-item-action bg-transparent second-text fw-bold "><i
+                        class="fa-regular fa-comment-dots me-2"></i> Messages</a>
+
+                 <a routerLink="/dashcompany" class="list-group-item list-group-item-action bg-transparent fw-bold second-text  "><i
+                  class="fa-regular fa-user me-2"></i> MyProfile</a>
+      </div>
+
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+          <div class="d-flex align-items-center">
+              <i class="fas fa-align-left primary-text fs-4 me-3" (click)="toggle()" id="menu-toggle"></i>
+
+          </div>
+      </nav>
+
+      <div class="container-fluid px-4">
+          <div class="row g-3 my-2 " >
+            <div class="container rounded bg-white mt-5 mb-5">
+              <div class="row">
+
+                    <app-add-ads></app-add-ads>
+
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>

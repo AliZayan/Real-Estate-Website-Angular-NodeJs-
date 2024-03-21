@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <br>
+
+    <br>
+
+    <br>
+
+
+    <div class="bg-white">
+        <div class="container-fluid row">
+         <div class="" id="navbarSupportedContent">
+            <h3>All Property Report   </h3>
+           </div>
+        </div>
+      </div>
+
+
+  <div class="t">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Report ID</th>
+            <th scope="col">Report Owner Name</th>
+            <th scope="col">Report Owner Email</th>
+            <th scope="col">Report Owner Type</th>
+            <th scope="col">Report Owner Message</th>
+            <th scope="col">Report Property Id</th>
+            <th scope="col">Property Owner Name</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of empList">
+            <td>{{employee.id}}</td>
+            <td>{{employee.property_Report_created_by_first_name}} {{employee.property_Report_created_by_f_last_name}}</td>
+            <td>{{employee.property_created_by_email}}</td>
+            <td>{{employee.user_types}}</td>
+            <td>{{employee.message_body}}</td>
+            <td>{{employee.properties_id}}</td>
+            <td>{{employee.property_owner_created_by_first_name}} {{employee.property_owner_created_by_f_last_name}}</td>
+
+
+
+             <td><button type="button" class="btn btn-danger" (click)="deleteEmployee(employee)">Delete</button></td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+  <br>
+
+  <br>
+
+  <br>
+
+  <br>
+  <br>
+
+  <br>
+
+  <br>
+
+  <br>
+  <br>
+
+  <br>
+
+  <br>
+
+  <br>
+  <br>
+
+  <br>
+
+  <br>
+
+  <br>
+  </div>
+

@@ -1,0 +1,200 @@
+
+.profile-button {
+
+    box-shadow: none;
+    border: none
+
+}
+
+.profile-button:hover {
+    background: rgb(2,119,189);
+}
+
+.textarea{
+
+    width: 100%;
+    background-color: #ebecee;
+	border-radius: 4px;
+
+	font-size: 14px;
+    color: rgb(108,117,125);
+    font-weight: bold;
+}
+
+
+
+.c{
+
+    text-decoration: none;
+
+}
+
+
+.labels {
+    font-size: 11px;
+    color: #3e485c;
+    font-weight: 700;
+    margin-bottom: 6px;
+    margin-left: 7px;
+}
+.form-label {
+
+	color: #3e485c;
+	font-weight: 600;
+	margin-bottom: 6px;
+	margin-left: 7px;
+    font-size: medium;
+}
+.form-control {
+	background-color: #ebecee;
+	border-radius: 4px;
+	height: auto;
+	font-size: 14px;
+    color: rgb(108,117,125);
+    font-weight: bold;
+}
+.form-group {
+
+	margin-bottom: 30px;
+}
+
+.ng-dropdown-panel-items{
+    background-color: white;
+}
+
+
+
+
+
+.ltn__slider-11 .ltn__slide-item-11 .slide-content .slide-title-2 {
+  color: var(--secondary-color-three); }
+
+
+/* Section Title 2 */
+.ltn__section-title-2 {
+  margin-bottom: 40px; }
+  .ltn__section-title-2 .section-subtitle {
+    margin-top: 0; }
+  .ltn__section-title-2 .section-title {
+    font-size: 72px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.3; }
+  .ltn__section-title-2 p {
+    padding: 0 0 0 30px;
+    border-width: 0 0 0 2px;
+    border-style: solid;
+    border-color: var(--ltn__secondary-color);
+    max-width: 450px; }
+  .ltn__section-title-2.text-right p {
+    padding: 0 30px 0 0;
+    border-width: 0 2px 0 0;
+    margin-left: auto; }
+  .ltn__section-title-2.text-center p {
+    padding: 0 0 0 30px;
+    border-width: 0 0 0 2px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left !important; }
+
+
+/* title-2 */
+.title-2 {
+  margin-bottom: 30px;
+  font-size: 22px;
+  font-weight: 600;
+  border-left: 2px solid;
+  border-color: var(--ltn__secondary-color);
+  padding-left: 10px; }
+
+  .section-subtitle {
+  font-weight: 600;
+  font-family: var(--ltn__body-font); }
+
+  .section-subtitle-2 {
+  display: inline-block;
+  padding: 5px 20px;
+  border-radius: 25px;
+  position: relative; }
+  .section-subtitle-2::before {
+    position: absolute;
+    content: "";
+    background-color: var(--ltn__secondary-color);
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    right: 50%;
+    -webkit-transform: translateY(-50%) translateX(50%);
+    -ms-transform: translateY(-50%) translateX(50%);
+    transform: translateY(-50%) translateX(50%);
+    border-radius: 25px;
+    opacity: 0.1; }
+
+  @media (max-width: 1599px) {
+  .ltn__section-title-2 .section-title {
+    font-size: 60px; } }
+
+  @media (max-width: 1399px) {
+  .ltn__section-title-2 .section-title {
+    font-size: 56px; }
+  .section-title-style-3 .section-title {
+    min-width: 320px; } }
+
+  @media (max-width: 1199px) {
+  .section-title {
+    font-size: 30px; }
+  .ltn__section-title-2 .section-title {
+    font-size: 50px; } }
+
+  @media (max-width: 991px) {
+  .section-title {
+    font-size: 26px; }
+  .ltn__section-title-2 .section-title {
+    font-size: 40px; }
+  .ltn__section-title-2 p {
+    padding: 0 0 0 15px; } }
+
+  @media (max-width: 767px) {
+  .section-title {
+    font-size: 30px; }
+  .ltn__section-title-2 .section-title {
+    font-size: 30px; }
+  .ltn__section-title-2 p {
+    padding: 0 0 0 15px; }
+  .section-title-style-3 {
+    display: block; }
+    .section-title-style-3 .section-title {
+      min-width: 100%; }
+    .section-title-style-3 .section-brief-in p {
+      padding: 0 0px 0 15px;
+      border-width: 0 0px 0 2px;
+      margin-left: 0;
+      margin-right: 0;
+      text-align: left;
+      margin-bottom: 15px; }
+  .title-2 {
+    font-size: 22px; } }
+
+  @media (max-width: 575px) {
+  .section-title {
+    font-size: 24px; }
+  .ltn__section-title-2 .section-title {
+    font-size: 24px; } }
+    @media (max-width: 767px) {
+    .ltn__counterup-area .ltn__section-title-2 {
+      text-align: center; }
+    .ltn__counterup-item h1 {
+      font-size: 30px; }
+    .ltn__counterup-item-3 {
+      text-align: center; }
+      .ltn__counterup-item-3 h1 {
+        font-size: 56px; } }
+        product-details-content .product-details-buy-btn .theme-btn-1 {
+          padding: 10px 100px 9px; }
+          .shoping-cart-total .btn-wrapper .theme-btn-1 {
+            display: block; }          .theme-btn-1 {
+              background-color:var(--ltn__secondary-color);
+              color: var(--white); }
+              .theme-btn-1:hover {
+                background-color: rgb(0, 0, 0);
+                color: var(--white); }

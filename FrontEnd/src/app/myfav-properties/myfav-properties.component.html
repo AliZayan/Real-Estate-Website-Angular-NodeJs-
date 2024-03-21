@@ -1,0 +1,191 @@
+<div class="d-flex" id="wrapper" >
+       <!-- Sidebar -->
+       <div class="Dashboard" id="sidebar-wrapper" *ngIf="showMe && dashbuyer" >
+
+        <div class="sidebar-heading container py-4 primary-text fs-4 fw-bold  border-bottom"><i
+                class="fa-solid fa-user me-2"></i>Buyer</div>
+        <div class="list-group list-group-flush my-3">
+          <a
+          (click)="$event.preventDefault()"
+class="list-group-item list-group-item-action bg-transparent second-text fw-bold active"
+>
+<i class="fa-regular fa-heart me-2 me-2 "></i>
+MyFavorite
+</a>
+
+            <a  routerLink="/dashbuyer/chat" style="cursor: default"
+                class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fa-regular fa-comment-dots me-2"></i> Messages</a>
+                    <a routerLink="/dashbuyer" style="cursor: pointer"
+                class="list-group-item list-group-item-action bg-transparent second-text  fw-bold "><i
+                    class="fa-regular fa-user me-2"></i> MyProfile</a>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+     <!-- Sidebar -->
+     <div class="Dashboard" id="sidebar-wrapper" *ngIf="showMe && dashseller">
+        <div class="sidebar-heading container py-4 primary-text fs-4 fw-bold  border-bottom"><i
+                class="fa-solid fa-house-chimney-user me-2"></i>Seller</div>
+        <div class="list-group list-group-flush my-3">
+          <a
+          (click)="$event.preventDefault()"
+class="list-group-item list-group-item-action bg-transparent second-text fw-bold active"
+>
+<i class="fa-regular fa-heart me-2 "></i>
+MyFavorite
+</a>
+
+
+
+            <a routerLink="/dashAdsSeller"
+                class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fa-solid fa-angles-up me-2"></i> AddProperty</a>
+            <a routerLink="/myProperties-seller" class="list-group-item list-group-item-action bg-transparent second-text fw-bold "><i
+                    class="fa-solid fa-building-user me-2"></i>MyProperties</a>
+            <a  routerLink="/dashseller/chat" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fa-regular fa-comment-dots me-2"></i> Messages</a>
+
+            <a routerLink="/dashseller"
+            class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                class="fa-regular fa-user me-2"></i> MyProfile</a>
+
+        </div>
+
+    </div>
+    <!-- /#sidebar-wrapper -->
+     <!-- Sidebar -->
+     <div class="Dashboard" id="sidebar-wrapper" *ngIf="showMe && dashcompany">
+        <div class="sidebar-heading container py-4 primary-text fs-4 fw-bold  border-bottom"><i
+                class="fa-solid fa-users  me-2"></i>Company</div>
+        <div class="list-group list-group-flush my-3">
+          <a
+          (click)="$event.preventDefault()"
+class="list-group-item list-group-item-action bg-transparent second-text fw-bold active"
+>
+<i class="fa-regular fa-heart me-2"></i>
+MyFavorite
+</a>
+
+
+            <a routerLink="/dashAdsCompany"
+                class="list-group-item list-group-item-action bg-transparent second-text fw-bold "><i
+                    class="fa-solid fa-angles-up me-2"></i> AddProperty</a>
+            <a routerLink="/myProperties-company" class="list-group-item list-group-item-action bg-transparent second-text fw-bold "><i
+                    class="fa-solid fa-building-user me-2"></i>MyProperties</a>
+                    <a  routerLink="/dashcompany/chat" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                      class="fa-regular fa-comment-dots me-2"></i> Messages</a>
+
+                      <a routerLink="/dashcompany" class="list-group-item list-group-item-action bg-transparent second-text fw-bold "><i
+                        class="fa-regular fa-user me-2"></i> MyProfile</a>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- Sidebar -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+        <div class="d-flex align-items-center">
+          <i
+            class="fas fa-align-left primary-text fs-4 me-3"
+            (click)="toggle()"
+            id="menu-toggle"
+          ></i>
+        </div>
+      </nav>
+     <!-- SLIDER AREA START (slider-1) -->
+
+
+
+    <div *ngIf="Found">
+<section  style="background-color: rgba(242, 246, 247, 0)">
+  <!-- PRODUCT DETAILS AREA START -->
+  <div class="ltn__product-area ltn__product-gutter">
+    <div class="container">
+                            <div class="row">
+                              <h4 class="title-2 mx-3">Favorite</h4>
+                                <!-- ltn__product-item -->
+                                <div class="col-lg-4 col-sm-6 col-12" *ngFor="let ad of myfavorite">
+                                    <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+                                        <div class="product-img">
+                                            <a href="product-details.html"><img src="{{ad.image_url}}" alt="#"></a>
+                                            <div class="real-estate-agent">
+                                                <div class="agent-img">
+                                                    <a href="team-details.html"><img src="{{ad.image_url}}" alt="#"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-info">
+                                            <div class="product-badge">
+                                                <ul>
+                                                    <li class="sale-badg">{{ ad.property_status_name }}</li>
+                                                </ul>
+                                            </div>
+                                            <h2 class="product-title">
+
+
+                                              <a routerLink="/propertiesforsale/{{ ad.id }}">{{ ad.title }}
+
+                                            </a></h2>
+                                            <div class="product-img-location">
+                                                <ul>
+                                                    <li>
+                                                        <a routerLink="/propertiesforsale/{{ ad.id }}" ><i><img style="max-width: 8%;" src="../../assets/Images/location-pin.png"/></i> {{ad.property_region_name}}</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="card-footer-a">
+                                              <ul class="card-info d-flex justify-content-around">
+                                                <li>
+                                                  <h4 class="card-info-title">
+                                                    <i class="fa-solid fa-maximize c"></i>
+                                                  </h4>
+
+                                                    <span class="square" style="    margin-left: -20%;
+                                                    ">{{ ad.square }}m
+                                                      <sup>2</sup>
+                                                    </span>
+
+                                                </li>
+                                                <li>
+                                                  <h4 class="card-info-title">
+                                                    <i class="fa-solid fa-bed c"></i>
+                                                  </h4>
+                                                  <span>{{ ad.rooms_number }}</span>
+                                                </li>
+                                                <li>
+                                                  <h4 class="card-info-title">
+                                                    <i class="fa-solid fa-bath c"></i>
+                                                  </h4>
+                                                  <span>{{ad.bathrooms_number}}</span>
+                                                </li>
+                                              </ul>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="product-info-bottom">
+                                            <div class="product-price">
+                                                <span>{{ ad.price }} EGP</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                      </div>
+<!-- PRODUCT DETAILS AREA END -->
+</section>
+
+
+</div>
+
+
+<div *ngIf="Found==false">
+<app-fav-not-found></app-fav-not-found>
+
+</div>
+    </div>
+  </div>

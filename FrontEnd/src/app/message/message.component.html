@@ -1,0 +1,98 @@
+<div class="">
+  <!-- header search name of chatter person -->
+  <div class="head-section">
+    <div class="headLeft-section align-items-center d-flex h-100">
+      <h4 class="title-2">Messages </h4>
+    </div>
+    <div class="headRight-section">
+      <div class="headRight-sub">
+        <h3>{{userName}}</h3>
+      </div>
+    </div>
+  </div>
+  <!-- header search name of chatter person -->
+
+  <div class="body-section">
+
+    <!-- last message with persons -->
+    <div class="left-section mCustomScrollbar" data-mcs-theme="minimal-dark">
+      <ul>
+        <li *ngFor="let person of persons" (click)="getChat(person.id)">
+          <div class="chatList">
+            <div class="img">
+              <img [src]='person.profile_image' style="width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              object-fit: cover;">
+
+            </div>
+            <div class="desc">
+              <h5>{{person.full_name}}</h5>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- last message with persons -->
+
+    <!-- chat body -->
+    <div class="right-section" *ngIf="checked" >
+      <div class="message mCustomScrollbar" data-mcs-theme="minimal-dark" style="overflow-y: auto;">
+        <ul id="parent">
+          <div *ngFor="let x of list">
+          <li class="msg-left" id="elementToClone" *ngIf="x.sender_id !== currentUserId">
+            <div class="msg-left-sub">
+              <img [src]="x.sender_profile_image_url" style="    width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              object-fit: cover;">
+              <div class="msg-desc" style="height: 50px;
+              line-height: 3.0;">
+                {{ x.message_body }}
+              </div>
+              <small>{{ x.created_at | date: "dd/MM/yy, h:mm a" }}</small>
+            </div>
+          </li>
+          <li class="msg-right" id="elementToClone02" *ngIf="x.sender_id == currentUserId">
+            <div class="msg-left-sub">
+              <img class="rounded-circle mt-5"
+                [src]="x.sender_profile_image_url" style="    width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;">
+              <div class="msg-desc" style="height: 50px;
+              line-height: 3.0;">
+                {{ x.message_body }}
+              </div>
+              <small>{{ x.created_at | date: "dd/MM/yy, h:mm a" }}</small>
+            </div>
+          </li>
+        </div>
+        </ul>
+      </div>
+
+
+
+
+
+      <div class="right-section-bottom">
+        <form style="background-color: white;">
+          <div class="upload-btn">
+            <button class="btn" style="margin-top: 13px;"><i class="fa-solid fa-image "style="color: #FF5A3C;"></i></button>
+            <input type="file" name="myfile" style="width:100% ; height:100%; cursor: pointer" />
+          </div>
+          <input type="text" name="" placeholder="Type Here..." #message>
+          <button class="btn-send" (click)="sendMessage(message)" style="margin-top: 18px;"><i class="fa-solid fa-paper-plane" style="color: #FF5A3C;"></i></button>
+        <br>
+      </form>
+      </div>
+
+    </div>
+
+    <!-- chat body -->
+<div *ngIf="!checked" class="bg-white h-50vh">
+          <app-test></app-test>
+        </div>
+
+  </div>
+</div>

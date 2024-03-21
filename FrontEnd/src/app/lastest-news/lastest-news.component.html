@@ -1,0 +1,33 @@
+<section class="news text-center sectionn">
+  <br>
+  <br>
+  <div class="container w-50">
+    <div class="text-center">
+        <div>
+            <h1>LATEST NEWS LIVE</h1>
+        </div>
+
+        <hr class="hr">
+    </div>
+  </div>
+  <br>
+        <div class="row m-0 w-100">
+            <div class="col p-0 m-2" *ngFor="let new of news">
+                <div class="card" style="min-height:570px;">
+                    <img [src]="new.urlToImage" alt="" class="card-img-top" style="height: 220px;" />
+                    <div class="card-body">
+                        <div class="d-flex" style="flex-direction: column;">
+                            <h5 class="card-title" style="min-height: 100px;">{{new.title}}</h5>
+                            <p class="card-text" style="height: 130px">{{new.description}}</p>
+                        </div>
+                        <div style="">
+                            <hr>
+                            <p class="card-text">{{new.publishedAt}}</p>
+                            <a [href]="new.url" target="_blank" class="btn">Show More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</section>

@@ -1,0 +1,197 @@
+<section class="container rounded bg-white mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-12 border-right">
+      <div class="p-3 py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="title-2">Property</h4>
+        </div>
+        <br>
+        <form [formGroup]="reForm" (ngSubmit)="onPostAds()">
+          <div class="row mt-2">
+            <div class="col-sm-6 col-md-6">
+              <div class="form-group">
+                <span class="form-label">Listing Type</span>
+                <select class="form-control" id="type" formControlName="type" name="type">
+                  <option value="" class="" selected="selected">Choose Property Type</option>
+
+                  <option *ngFor="let cat of category" value="{{cat.id}}" [label]="cat.name"> {{cat.name}}</option>
+                </select> <div *ngIf="reForm.controls.type.touched && reForm.controls.type.errors?.required"
+              class="ml-3"style="color: #7a281a;font-weight: 500; margin-left: 23px; padding: 10px;">Type is required</div>
+              </div>
+
+
+            </div>
+            <div class="col-sm-6 col-md-6">
+              <div class="form-group">
+                <span class="form-label">Listing Section</span>
+                <select class="form-control" id="status" formControlName="status" name="status">
+                  <option value="" class="" selected="selected">Rent or Sale</option>
+
+                  <option *ngFor="let stat of status" value="{{stat.id}}" [label]="stat.name">
+                    {{stat.name}}</option>
+                </select>
+                <div *ngIf="reForm.controls.status.touched && reForm.controls.status.errors?.required"
+              class="ml-3"style="color: #7a281a;font-weight: 500; margin-left: 23px; padding: 10px;">Listing Section is required</div>
+              </div>
+            </div>
+            <div class="col-lg-12  col-md-12 col-sm-12 form-group">
+              <span class="form-label" for="location" >Location</span>
+              <select class="form-control" id="location" formControlName="location" name="location"
+                [(ngModel)]="selectedCity" (change)="getRegion(selectedCity)">
+
+                <option value="" class="" selected="selected">Select Location</option>
+                <option *ngFor="let city of cities" value="{{city.id}}" [label]="city.name">
+                  {{city.name}}</option>
+              </select>
+              <div *ngIf="reForm.controls.location.touched && reForm.controls.location.errors?.required"
+              class="ml-3"style="color: #7a281a;font-weight: 500; margin-left: 23px; padding: 10px;">location is required</div>
+
+            </div>
+            <div class="col-lg-12  col-md-12 col-sm-12 form-group">
+              <span class="form-label" for="region">Region</span>
+              <select class="form-control" id="region" formControlName="region" name="region"
+                [(ngModel)]="selectedRegion">
+
+                <option value="" class="" selected="selected">Select Region</option>
+                <option *ngFor="let region of regions" value="{{region.id}}" [label]="region.name">
+                  {{region.name}}</option>
+              </select>
+              <div *ngIf="reForm.controls.region.touched && reForm.controls.region.errors?.required"
+              class="ml-3"style="color: #7a281a;font-weight: 500; margin-left: 23px; padding: 10px;">Region is required</div>
+            </div>
+            <div class="col-lg-12  col-md-12 col-sm-12 form-group">
+              <span class="form-label" for="feature">Feature</span>
+              <select class="form-control" id="feature" formControlName="feature" name="feature"
+                [(ngModel)]="selectedfeature">
+
+                <option value="" class="" selected="selected">Select Feature</option>
+                <option *ngFor="let feature of features" value="{{feature.id}}" [label]="feature.name">
+                  {{feature.name}}</option>
+              </select>
+              <div *ngIf="reForm.controls.feature.touched && reForm.controls.feature.errors?.required"
+              class="ml-3"style="color: #7a281a;font-weight: 500; margin-left: 23px; padding: 10px;">Feature is required</div>
+            </div>
+
+
+            <div class="col-md-12"><span class=" form-label" for="youtube_url">Youtube Video Url</span>
+              <input type="text" formControlName="youtube_url" id="youtube_url" name="youtube_url"
+                class="form-control form-group">
+                <div *ngIf="reForm.controls.youtube_url.touched && reForm.controls.youtube_url.errors?.required"
+                class="ml-3"style="color: #7a281a;font-weight: 500; margin-left: 23px; padding: 10px;">Youtube Video Url is required</div>
+            </div>
+
+            <div class="col-md-12"><span class=" form-label" for="youtube_url">Property Image</span>
+
+              <input class="form-control form-group" type="file" id="file" name="file" formControlName="file"
+                (change)="onFileChange($event.target)" required />
+
+                <div *ngIf="reForm.controls.file.touched && reForm.controls.file.errors?.required"
+                class="ml-3"style="color: #7a281a;font-weight: 500; margin-left: 23px; padding: 10px;">Property Image is required</div>
+            </div>
+
+            <div class="col-lg-2 col-sm-12 col-md-4">
+
+              <span class=" form-label" for="price">Price - EGP</span>
+              <input type="text" inputmode="numeric" formControlName="price" id="price" name="price"
+                class="form-control form-group" placeholder="0">
+                <div *ngIf="reForm.controls.price.touched && reForm.controls.price.errors?.required"
+                class="ml-3"style="color: #7a281a;font-weight: 500; margin-left: 23px; padding: 10px;">Price is required</div>
+
+            </div>
+
+
+            <div class=" col-lg-2 col-sm-12 col-md-4">
+              <div class="form-group"><span class=" form-label" for="content_num_floors">Floors</span>
+                <input type="text" formControlName="content_num_floors" id="content_num_floors"
+                  name="content_num_floors" class="form-control form-group" min="1" max="500" inputmode="numeric">
+                  <div *ngIf="reForm.controls.content_num_floors.touched && reForm.controls.content_num_floors.errors?.required"
+                  class="ml-3"style="color: #7a281a;font-weight: 500; margin-left: 23px; padding: 10px;">Floors is required</div>
+              </div>
+            </div>
+
+
+            <div class=" col-lg-2 col-sm-12 col-md-4">
+              <div class="form-group"><span class=" form-label" for="content_num_bathrooms">Bathrooms</span>
+                <input type="text" formControlName="content_num_bathrooms" id="content_num_bathrooms"
+                  name="content_num_bathrooms" class="form-control form-group" min="1" max="500" inputmode="numeric">
+                  <div *ngIf="reForm.controls.content_num_bathrooms.touched && reForm.controls.content_num_bathrooms.errors?.required"
+                  class="ml-3"style="color: #7a281a;font-weight: 500; margin-left: 23px; padding: 10px;">Bathrooms is required</div>
+              </div>
+            </div>
+            <div class=" col-lg-2 col-sm-12 col-md-4">
+              <div class="form-group"><span class=" form-label" for="content_num_bedrooms">Bedrooms</span>
+                <input type="text" formControlName="content_num_bedrooms" id="content_num_bedrooms"
+                  name="content_num_bedrooms" class="form-control form-group" min="1" max="500" inputmode="numeric">
+                  <div *ngIf="reForm.controls.content_num_bedrooms.touched && reForm.controls.content_num_bedrooms.errors?.required"
+                  class="ml-3"style="color: #7a281a;font-weight: 500; margin-left: 23px; padding: 10px;">Bedrooms is required</div>
+              </div>
+            </div>
+             <div class=" col-lg-2 col-sm-12 col-md-4">
+              <div class="form-group"><span class=" form-label" for="content_sequres">Square</span>
+                <input type="text" formControlName="content_sequres" id="content_sequres"
+                  name="content_sequres" class="form-control form-group" min="1" max="100000" inputmode="numeric">
+                  <div *ngIf="reForm.controls.content_sequres.touched && reForm.controls.content_sequres.errors?.required"
+                  class="ml-3"style="color: #7a281a;font-weight: 500; margin-left: 23px; padding: 10px;">Square is required</div>
+              </div>
+            </div>
+
+
+            <div class="col-sm-6 col-md-6">
+              <div class="form-group">
+                <span class="form-label">Latitude</span>
+
+                <input type="text" class="form-control form-group" formControlName="marker_latitude"
+                  id="marker_latitude" name="marker_latitude" placeholder="lat coordinate">
+                  <div *ngIf="reForm.controls.marker_latitude.touched && reForm.controls.marker_latitude.errors?.required"
+                  class="ml-3"style="color: #7a281a;font-weight: 500; margin-left: 23px; padding: 10px;">Latitude is required</div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+              <div class="form-group">
+                <span class="form-label" for="marker_langitude" >Longitude</span>
+                <input type="text" formControlName="marker_langitude" id="marker_langitude" name="marker_langitude"
+                  class="form-control form-group" placeholder="long coordinate">
+                  <div *ngIf="reForm.controls.marker_langitude.touched && reForm.controls.marker_langitude.errors?.required"
+                  class="ml-3"style="color: #7a281a;font-weight: 500; margin-left: 23px; padding: 10px;">Longitude is required</div>
+              </div>
+            </div>
+            <a href="https://www.latlong.net/" target="_blank" class="c link-primary text-center" style="color: #7a281a; font-weight: 500; text-align: center;"> To get
+              latitude and longitude </a>
+
+
+            <div class="col-md-12 "><span class="form-label" for="title">Title in English</span><input type="text"
+                formControlName="title" id="title" name="title" class="form-control form-group" value="">
+                <div *ngIf="reForm.controls.title.touched && reForm.controls.title.errors?.required"
+                  class="ml-3"style="color: #7a281a;font-weight: 500; margin-left: 23px; padding: 10px;">Title in English is required</div>
+
+              </div>
+
+            <div class="form-group  col-md-12">
+              <label for="description" class="form-label ">Description </label>
+              <textarea name="Description" formControlName="description" id="description" name="description"
+                class="textarea form-control" cols="30" rows="10"></textarea>
+                <div *ngIf="reForm.controls.description.touched && reForm.controls.description.errors?.required"
+                  class="ml-3"style="color: #7a281a;font-weight: 500; margin-left: 23px; padding: 10px;">Description is required</div>
+            </div>
+
+ <div *ngIf="message!= null" style="color: #7a281a; font-weight: 500; text-align: center;">
+            {{message}}
+          </div>
+
+            <div class="mt-5 text-center" *ngIf="!isedit"><button class=" btn theme-btn-1 profile-button"
+                type="submit">Add
+                Property</button></div>
+            <div class="mt-5 text-center" *ngIf="isedit"><button class=" btn theme-btn-1 profile-button" type="button"
+                (click)="updateProperty()">Edit
+                Property</button></div>
+          </div>
+
+        </form>
+  <!--   <pre>{{ reForm.value | json }}   </pre>-->
+      </div>
+
+
+    </div>
+  </div>
+
+</section>

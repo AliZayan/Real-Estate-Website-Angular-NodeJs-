@@ -1,0 +1,81 @@
+<div class="container-fluid">
+  <br>
+
+  <br>
+
+  <br>
+
+
+  <div class="bg-white">
+      <div class="container-fluid row">
+       <div class="" id="navbarSupportedContent">
+          <h3>Contact Us</h3>
+         </div>
+      </div>
+    </div>
+
+
+<div class="t">
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">ContactUs ID</th>
+          <th scope="col">ContactUs Owner Name</th>
+          <th scope="col">ContactUs Owner Email</th>
+          <th scope="col">ContactUs Owner Type</th>
+          <th scope="col">ContactUs Owner Message</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of empList">
+          <td>{{employee.id}}</td>
+          <td>{{employee.property_Report_created_by_first_name}} {{employee.property_Report_created_by_f_last_name}}</td>
+          <td>{{employee.property_created_by_email}}</td>
+          <td>{{employee.user_types}}</td>
+          <td>{{employee.message}}</td>
+
+
+
+          <td><button type="button"  class="btn btn-secondary" style="color: white;" (click)="ConcatusMessage(employee.users_id)">Message</button></td>
+          <td><button type="button" class="btn btn-danger"style="color: white;" (click)="deleteEmployee(employee.id)">Delete</button></td>
+
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+<br>
+
+<br>
+
+<br>
+
+<br>
+<br>
+
+<br>
+
+<br>
+
+<br>
+<br>
+
+<br>
+
+<br>
+
+<br>
+</div>
+
